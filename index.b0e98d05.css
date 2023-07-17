@@ -1,0 +1,262 @@
+@font-face {
+  font-family: monument_extendedblack;
+  src: url("monumentextended-black-webfont.67e8f599.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: monument_extendedbold;
+  src: url("monumentextended-bold-webfont.0a444cca.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: monument_extendedregular;
+  src: url("monumentextended-regular-webfont.2b46c337.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: monument_extendedultralight;
+  src: url("monumentextended-ultralight-webfont.440950a6.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: nooplaregular;
+  src: url("nooplaregular.e779765d.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --dark: #181825;
+  --white: #fff;
+  --primary: #3effe8;
+  --secondary: #8c0fee;
+  --font-size-global: 1.26rem;
+  --line-height-global: 1.3;
+  --letter-spacing-global: .1rem;
+  --font-family: "monument_extendedbold", "Helvetica", "Arial", sans-serif;
+  --padding-global: clamp(0rem, 5vw, 2.5rem);
+  --length-logo: 5.6rem;
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  overflow: hidden;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: var(--font-size-global);
+  font-family: var(--font-family);
+  color: var(--white);
+  background-color: var(--dark);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+video {
+  object-fit: cover;
+}
+
+h1 {
+  text-transform: uppercase;
+  justify-self: flex-start;
+  min-width: 50%;
+  font-family: monument_extendedblack;
+  font-size: clamp(5.3rem, 10.6vw, 13rem);
+  line-height: .77;
+}
+
+header {
+  padding: var(--padding-global);
+  opacity: 0;
+  flex-flow: wrap;
+  align-items: flex-end;
+  gap: 3.5vw 7vw;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+header.font-loaded {
+  opacity: 1;
+}
+
+header > ul {
+  text-transform: uppercase;
+  font-family: monument_extendedregular;
+  font-size: var(--font-size-global);
+  line-height: var(--line-height-global);
+  letter-spacing: var(--letter-spacing-global);
+}
+
+header > ul a {
+  transition: opacity .2s;
+}
+
+header > ul a:hover {
+  opacity: .75;
+}
+
+nav[role="navigation"] ul {
+  flex-direction: column;
+  gap: .3rem;
+  display: flex;
+}
+
+nav[role="navigation"] li {
+  line-height: var(--line-height-global);
+}
+
+nav[role="navigation"] a {
+  position: relative;
+}
+
+nav[role="navigation"] a:before {
+  content: "";
+  background-color: var(--white);
+  opacity: 0;
+  border-radius: 8px;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  transition: opacity .2s;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 8px);
+}
+
+nav[role="navigation"] a:hover:before {
+  opacity: .5;
+}
+
+nav[role="navigation"] a.active:before {
+  opacity: 1;
+}
+
+nav[role="navigation"] span {
+  text-transform: uppercase;
+  font-size: var(--font-size-global);
+  letter-spacing: var(--letter-spacing-global);
+}
+
+nav[role="navigation"] i {
+  text-transform: lowercase;
+  opacity: .85;
+  font-family: monument_extendedultralight;
+  font-style: normal;
+  font-weight: 100;
+}
+
+#logo {
+  flex: 1;
+  justify-content: flex-end;
+  padding-right: 4rem;
+  display: flex;
+}
+
+#logo > a {
+  width: var(--length-logo);
+  height: var(--length-logo);
+  perspective: 1000px;
+  margin-bottom: .4rem;
+  display: block;
+  position: relative;
+}
+
+#logo > a:hover span:first-of-type {
+  transform: rotateY(360deg);
+}
+
+#logo > a:hover span:last-of-type {
+  transform: rotateY(-180deg);
+}
+
+#logo > a span {
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  transition: transform 2s;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#logo > a span:first-of-type path {
+  fill: var(--white);
+}
+
+#logo > a span:last-of-type {
+  transform: rotateY(180deg);
+}
+
+#logo > a span:last-of-type path {
+  fill: var(--white);
+  opacity: .7;
+}
+
+main[role="main"] {
+  height: calc(var(--vh, 1vh) * 100);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.cursor-container {
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100vw;
+}
+
+.cursor-container g {
+  transform-origin: center;
+}
+
+@media screen and (width <= 1024px) {
+  header[role="banner"] {
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+  }
+
+  h1, #logo {
+    flex: unset;
+    line-height: 1;
+  }
+
+  nav {
+    margin-left: var(--padding-global);
+    flex: 1;
+  }
+}
+
+/*# sourceMappingURL=index.b0e98d05.css.map */
